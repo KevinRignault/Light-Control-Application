@@ -14,10 +14,6 @@ Ti.include('/ui/server.manager.js');
 //-- Make Header
 var makeHeader = require('ui/header.manager').makeHeader;
 
-//-- Navigation Controller
-var NavigationController = require('ui/navigation.manager').NavigationController;
-var navController = new NavigationController();
-
 //------------------
 // GLOBAL VAR
 //------------------
