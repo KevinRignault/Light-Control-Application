@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+iosLaunchConfigurationAttributes/ATTR_MINIFY=true
+iosLaunchConfigurationAttributes/ATTR_PROJECT_NAME=Light Control
+iosLaunchConfigurationAttributes/ATTR_UPLOAD_DEBUG_SYMBOLS=false
+iosLaunchConfigurationAttributes/appid=com.krignault.light-control
+iosLaunchConfigurationAttributes/certificate=Kevin Rignault (W9K58RJQ77)
+iosLaunchConfigurationAttributes/keychain=
+iosLaunchConfigurationAttributes/sdk_version=9.3
+iosLaunchConfigurationAttributes/uuid=90e01ccb-7eed-4e05-95ca-fd903351ac35
