@@ -5,6 +5,9 @@
 //-- Make Window
 Ti.include('/ui/window.manager.js');
 
+//-- App Functions
+Ti.include('/ui/functions.manager.js');
+
 //-- Server Functions
 Ti.include('/ui/server.manager.js');
 

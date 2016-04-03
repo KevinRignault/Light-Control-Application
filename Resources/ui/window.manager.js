@@ -13,10 +13,12 @@ function makeWindow(title) {
 	
 	//-- Main window
 	var mainWin = Ti.UI.createWindow({
+		width:pWidth,
+		height:pHeight,
 		title:title,
 		fullsreen:true,
-		tabBarHidden:false, // tabgroup
-		navBarHidden:false, // title
+		tabBarHidden:true, // tabgroup
+		navBarHidden:true, // title
 		backgroundColor:"#FFFFFF",
 		orientationModes: [
 	        Ti.UI.PORTRAIT,
@@ -26,7 +28,7 @@ function makeWindow(title) {
 	});
 	
 	//-- Main content
-	var mainContent = Ti.UI.createScrollView({width:'100%',height:'100%',backgroundColor:"#FFFFFF",zIndex:2,axis:0});
+	var mainContent = Ti.UI.createScrollView({width:'100%',height:'100%',backgroundColor:'#448193',zIndex:2,axis:0});
 	mainWin.add(mainContent);
 	mainWin.content = mainContent;
 	

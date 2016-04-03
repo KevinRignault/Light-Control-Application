@@ -9,29 +9,21 @@ exports.dashboardWin = function() {
 	var mainWin = makeWindow('Dashboard', false);
 	
 	//-- CONTENT BLOCK
-	var blockContent = Ti.UI.createView({top:0,bottom:0,left:0,right:0});
-	mainWin.content.add(blockContent);	
+	var blockContent = Ti.UI.createView({width:280,height:Ti.UI.SIZE,layout:'horizontal'});
+	mainWin.content.add(blockContent);
 	
 	//-- RED BLOCK
-	var redBlockOn = Ti.UI.createView({touchId:"light",touchAction:"on",dataLed:0,top:0,left:0,width:'50%',height:'50%',backgroundColor:'#CCC',backgroundActive:'red',backgroundDeactive:'#CCC'});
-	var redBlockOnLabel = Ti.UI.createLabel({text:"ON",color:'black',touchEnabled:false});
-	redBlockOn.add(redBlockOnLabel);
+	var redBlockOn = makeLedButton("on",0,"#cc0000",false);
 	blockContent.add(redBlockOn);
 	
-	var redBlockOff = Ti.UI.createView({touchId:"light",touchAction:"off",dataLed:0,top:0,right:0,width:'50%',height:'50%',backgroundColor:'red',backgroundActive:'red',backgroundDeactive:'#CCC'});
-	var redBlockOffLabel = Ti.UI.createLabel({text:"OFF",color:'black',touchEnabled:false});
-	redBlockOff.add(redBlockOffLabel);
+	var redBlockOff = makeLedButton("off",0,"#cc0000",true);
 	blockContent.add(redBlockOff);
 	
 	//-- GREEN BLOCK
-	var greenBlockOn = Ti.UI.createView({touchId:"light",touchAction:"on",dataLed:1,top:'50%',left:0,width:'50%',height:'50%',backgroundColor:'#CCC',backgroundActive:'green',backgroundDeactive:'#CCC'});
-	var greenBlockOnLabel = Ti.UI.createLabel({text:"ON",color:'black',touchEnabled:false});
-	greenBlockOn.add(greenBlockOnLabel);
+	var greenBlockOn = makeLedButton("on",1,"#00cc00",false);
 	blockContent.add(greenBlockOn);
 	
-	var greenBlockOff = Ti.UI.createView({touchId:"light",touchAction:"off",dataLed:1,top:'50%',right:0,width:'50%',height:'50%',backgroundColor:'green',backgroundActive:'green',backgroundDeactive:'#CCC'});
-	var greenBlockOffLabel = Ti.UI.createLabel({text:"OFF",color:'black',touchEnabled:false});
-	greenBlockOff.add(greenBlockOffLabel);
+	var greenBlockOff = makeLedButton("off",1,"#00cc00",true);
 	blockContent.add(greenBlockOff);
 	
 	//-- CLICK ACTION
@@ -41,6 +33,16 @@ exports.dashboardWin = function() {
 		}
 	});
 	
+	//-- SETTINGS
+	var settingsContent = Ti.UI.createView({width:60,height:60,bottom:20,right:20});
+	var settingsButton = Ti.UI.createImageView({image:"/images/config.png"});
+	settingsContent.add(settingsButton);
+	mainWin.content.add(settingsContent);
+	
+	//-- CLICK SETTINGS
+	settingsContent.addEventListener('click', function(){
+		tabGroup.setActiveTab(1);
+	});
 	
 	//------------------
 	// FUNCTIONS
