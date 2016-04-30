@@ -14,6 +14,14 @@ Ti.include('/ui/server.manager.js');
 //-- Make Header
 var makeHeader = require('ui/header.manager').makeHeader;
 
+
+//------------------
+// FONTS
+//------------------
+
+var bebasNeue = 'BebasNeue'; // Bebas Neue
+
+
 //------------------
 // GLOBAL VAR
 //------------------

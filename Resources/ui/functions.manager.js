@@ -3,38 +3,53 @@
 //------------------
 
 /*
- * makeLedButton
- * Construit un bouton type LED
+ * makeLedSlide
+ * Construit un slide type LED
  * 
- * action {String} : On / Off
+ * active {Bool}
  * led {Int} : ID de la led
- * color {String} : Couleur du bouton
+ * colorActive {String} : Couleur du slide actif
+ * colorDeactive {String} : Couleur du slide non actif
+ * 
  */
-function makeLedButton(action,led,color,active){
-	var button = Ti.UI.createView({
-		touchId:"light",
-		touchAction:action,
+function makeLedSlide(active,led,colorActive,colorDeactive){
+	var slide = Ti.UI.createView({
+		touch:"light",
+		active:active,
 		dataLed:led,
-		width:120,
-		height:120,
-		left:10,
-		right:10,
-		top:10,
-		bottom:10,
-		backgroundColor: active ? color : 'transparent',
-		backgroundActive:color,
-		backgroundDeactive:'transparent',
-		borderWidth:1,
-		borderColor:'white'
+		width:'100%',
+		height:'100%',
+		backgroundColor:active ? colorActive : colorDeactive,
+		backgroundActive:colorActive, 
+		backgroundDeactive:colorDeactive
 	});
 	
-	var buttonLabel = Ti.UI.createLabel({
-		text:action.toUpperCase(),
-		color:'white',
+	var light = Ti.UI.createImageView({
+		top:100,
+		image:'/images/light.png',
 		touchEnabled:false
 	});
+	slide.add(light);
 	
-	button.add(buttonLabel);
+	slide.light = light;
 	
-	return button;
+	var label = Ti.UI.createLabel({
+		bottom:150,
+		text:active ? 'ON' : 'OFF',
+		textActive: 'ON',
+		textDeactive: 'OFF',
+		color:'white',
+		width:200,
+		textAlign:'center',
+		font:{
+			fontFamily:bebasNeue,
+			fontSize:46
+		},
+		touchEnabled:false
+	});
+	slide.add(label);
+	
+	slide.label = label;
+	
+	return slide;
 }

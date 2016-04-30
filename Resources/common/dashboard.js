@@ -8,41 +8,34 @@ exports.dashboardWin = function() {
 	//------------------
 	var mainWin = makeWindow('Dashboard', false);
 	
-	//-- CONTENT BLOCK
-	var blockContent = Ti.UI.createView({width:280,height:Ti.UI.SIZE,layout:'horizontal'});
-	mainWin.content.add(blockContent);
+	//-- SCROLLABLE
+	var scrollableLight = Ti.UI.createScrollableView({width:pWidth,height:pHeight,showPagingControl:true,pagingControlColor:'transparent',pagingControlHeight:40,overlayEnabled:true,disableBounce:true});
+	mainWin.content.add(scrollableLight);
 	
-	//-- RED BLOCK
-	var redBlockOn = makeLedButton("on",0,"#cc0000",false);
-	blockContent.add(redBlockOn);
+	//-- RED SLIDE
+	var redSlide = makeLedSlide(false,0,'rgba(206,53,75,1)','rgba(206,53,75,0.4)');
+	scrollableLight.addView(redSlide);
 	
-	var redBlockOff = makeLedButton("off",0,"#cc0000",true);
-	blockContent.add(redBlockOff);
+	//-- GREEN SLIDE
+	var greenSlide = makeLedSlide(false,1,'rgba(98,168,158,1)','rgba(98,168,158,0.4)');
+	scrollableLight.addView(greenSlide);
 	
-	//-- GREEN BLOCK
-	var greenBlockOn = makeLedButton("on",1,"#00cc00",false);
-	blockContent.add(greenBlockOn);
-	
-	var greenBlockOff = makeLedButton("off",1,"#00cc00",true);
-	blockContent.add(greenBlockOff);
-	
-	//-- CLICK ACTION
-	blockContent.addEventListener('click', function(e){
-		if(e.source.touchId == "light"){
+	//-- CLICK EVENT
+	scrollableLight.addEventListener('click', function(e){
+		if(e.source.touch == "light"){
 			lightAction(e);
 		}
 	});
 	
 	//-- SETTINGS
-	var settingsContent = Ti.UI.createView({width:60,height:60,bottom:20,right:20});
-	var settingsButton = Ti.UI.createImageView({image:"/images/config.png"});
-	settingsContent.add(settingsButton);
-	mainWin.content.add(settingsContent);
+	var settingsButton = Ti.UI.createImageView({image:"/images/material-config-dark.png",bottom:30,right:20});
+	mainWin.content.add(settingsButton);
 	
 	//-- CLICK SETTINGS
-	settingsContent.addEventListener('click', function(){
+	settingsButton.addEventListener('click', function(){
 		tabGroup.setActiveTab(1);
 	});
+	
 	
 	//------------------
 	// FUNCTIONS
@@ -55,18 +48,17 @@ exports.dashboardWin = function() {
 	 * btn {Obj} : Bouton qui vient d'être cliqué
 	 * 
 	 */
-	function lightAction(btn){
-		var thisBtn = btn.source;
-		var thisAction = btn.source.touchAction;
-		var thisLed = btn.source.dataLed;
+	function lightAction(slide){
+		var thisSlide = slide.source;
+		var thisAction = slide.source.active ? "off" : "on";
+		var thisLed = slide.source.dataLed;
 			
 		var thisURL = SERVER_URL+"/"+thisAction+"/"+thisLed;
 		
 		lightManager(thisURL, 
 		//-- Success
 		function(){
-			deactiveButton(thisLed);
-			activeButton(thisBtn);
+			switchSlide(thisSlide);
 		},
 		//-- Error
 		function(){
@@ -75,30 +67,23 @@ exports.dashboardWin = function() {
 	}
 	
 	/*
-	 * deactiveButton
-	 * Désactive les boutons correspondant à la led
+	 * switchButton
+	 * Active/Désactive le slide
 	 * 
-	 * led {Int} : ID de la led
-	 *  
+	 * slide {Object} : Slide à activer/désactiver
+	 * 
 	 */
-	function deactiveButton(led){
-		var nbBtn = blockContent.children.length;
-		
-		for(var i=0; i<nbBtn; i++){
-			var thisBtn = blockContent.children[i];
-			if(thisBtn.dataLed == led) thisBtn.backgroundColor = thisBtn.backgroundDeactive;
+	function switchSlide(slide){
+		if(slide.active){
+			slide.active = false;
+			slide.backgroundColor = slide.backgroundDeactive;
+			slide.label.text = slide.label.textDeactive;
 		}
-	}
-	
-	/*
-	 * activeButton
-	 * Active le bouton
-	 * 
-	 * btn {Object} : Bouton à activer
-	 * 
-	 */
-	function activeButton(btn){
-		btn.backgroundColor = btn.backgroundActive;
+		else {
+			slide.active = true;
+			slide.backgroundColor = slide.backgroundActive;
+			slide.label.text = slide.label.textActive;
+		}
 	}
 	
 	return mainWin;

@@ -28,7 +28,7 @@ function makeWindow(title) {
 	});
 	
 	//-- Main content
-	var mainContent = Ti.UI.createScrollView({width:'100%',height:'100%',backgroundColor:'#448193',zIndex:2,axis:0});
+	var mainContent = Ti.UI.createScrollView({width:'100%',height:'100%',backgroundColor:'#FFFFFF',zIndex:2,axis:0});
 	mainWin.add(mainContent);
 	mainWin.content = mainContent;
 	
