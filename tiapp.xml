@@ -1,78 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>com.krignault.lightcontrol</id>
-    <name>Light Control</name>
-    <version>1.0</version>
-    <publisher>kevinrignault</publisher>
-    <url>www.kevinrignault.fr</url>
-    <description>undefined</description>
-    <copyright>2016 by kevinrignault</copyright>
-    <icon>appicon.png</icon>
-    <fullscreen>false</fullscreen>
-    <navbar-hidden>false</navbar-hidden>
-    <analytics>true</analytics>
-    <guid>b003d697-de8a-46a4-9444-7bf6a37a5681</guid>
-    <property name="ti.ui.defaultunit" type="string">dp</property>
-    <ios>
-        <plist>
-            <dict>
-                <key>UISupportedInterfaceOrientations~iphone</key>
-                <array>
-                    <string>UIInterfaceOrientationPortrait</string>
-                </array>
-                <key>UISupportedInterfaceOrientations~ipad</key>
-                <array>
-                    <string>UIInterfaceOrientationPortrait</string>
-                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
-                    <string>UIInterfaceOrientationLandscapeLeft</string>
-                    <string>UIInterfaceOrientationLandscapeRight</string>
-                </array>
-                <key>UIRequiresPersistentWiFi</key>
-                <false/>
-                <key>UIPrerenderedIcon</key>
-                <false/>
-                <key>UIStatusBarHidden</key>
-                <false/>
-                <key>UIStatusBarStyle</key>
-                <string>UIStatusBarStyleDefault</string>
-            </dict>
-        </plist>
-    </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+<ti:app 
+  xmlns:ti="http://ti.appcelerator.org">
+  <id>dev.krignault.lightcontrol</id>
+  <name>Light Control</name>
+  <version>1.0</version>
+  <publisher>kevinrignault</publisher>
+  <url>www.kevinrignault.fr</url>
+  <description>undefined</description>
+  <copyright>2016 by kevinrignault</copyright>
+  <icon>appicon.png</icon>
+  <fullscreen>false</fullscreen>
+  <navbar-hidden>false</navbar-hidden>
+  <analytics>true</analytics>
+  <guid>b2d54c0c-7c26-4266-9222-283d3105d2c6</guid>
+  <property name="ti.ui.defaultunit" type="string">dp</property>
+  <ios>
+    <plist>
+      <dict>
+        <key>UISupportedInterfaceOrientations~iphone</key>
+        <array>
+          <string>UIInterfaceOrientationPortrait</string>
+        </array>
+        <key>UISupportedInterfaceOrientations~ipad</key>
+        <array>
+          <string>UIInterfaceOrientationPortrait</string>
+          <string>UIInterfaceOrientationPortraitUpsideDown</string>
+          <string>UIInterfaceOrientationLandscapeLeft</string>
+          <string>UIInterfaceOrientationLandscapeRight</string>
+        </array>
+        <key>UIRequiresPersistentWiFi</key>
+        <false/>
+        <key>UIPrerenderedIcon</key>
+        <false/>
+        <key>UIStatusBarHidden</key>
+        <false/>
+        <key>UIStatusBarStyle</key>
+        <string>UIStatusBarStyleDefault</string>
+      </dict>
+    </plist>
+  </ios>
+  <android 
+    xmlns:android="http://schemas.android.com/apk/res/android"/>
     <mobileweb>
-        <precache/>
-        <splash>
-            <enabled>true</enabled>
-            <inline-css-images>true</inline-css-images>
-        </splash>
-        <theme>default</theme>
+      <precache/>
+      <splash>
+        <enabled>true</enabled>
+        <inline-css-images>true</inline-css-images>
+      </splash>
+      <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="commonjs">ti.cloud</module>
+      <module platform="commonjs">ti.cloud</module>
     </modules>
     <deployment-targets>
-        <target device="android">true</target>
-        <target device="ipad">true</target>
-        <target device="iphone">true</target>
-        <target device="mobileweb">false</target>
-        <target device="windows">false</target>
+      <target device="android">true</target>
+      <target device="ipad">true</target>
+      <target device="iphone">true</target>
+      <target device="mobileweb">false</target>
+      <target device="windows">false</target>
     </deployment-targets>
-    <sdk-version>5.1.2.GA</sdk-version>
-    <property name="appc-app-id" type="string">56feb26e9a932673356fe81a</property>
-    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
-    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
-    <property name="acs-oauth-secret-development" type="string">sSBWZgVTu5jrRg0uIqxWg3qOHSs3W4EG</property>
-    <property name="acs-oauth-key-development" type="string">5wq7nyzlIvDTteogSvIRDcCivZJH9Ity</property>
-    <property name="acs-api-key-development" type="string">sg5CeBOMpODaEhr7KJPMCizTvt7rhBNr</property>
-    <property name="acs-username-development" type="string">appc_app_user_dev</property>
-    <property name="acs-password-development" type="string">L5wnuYxZ9hL1Wr7OV6</property>
-    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
-    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
-    <property name="acs-oauth-secret-production" type="string">4sEfC2yvjQzHdmCWT826b3U1VYMGcA9n</property>
-    <property name="acs-oauth-key-production" type="string">PvG4sY1F587jbMH0BXfNVrJHBvTNveZi</property>
-    <property name="acs-api-key-production" type="string">huIYIyEz9JM0Yfpo58sUMebvonCfxXaa</property>
-    <property name="acs-username-production" type="string">appc_app_user</property>
-    <property name="acs-password-production" type="string">h1syy94NYHONDwmRwd</property>
-    <property name="appc-org-id" type="string">100044148</property>
-    <property name="appc-creator-user-id" type="string">ef24d687-9cae-4b23-bbba-426bd551425a</property>
-</ti:app>
+    <sdk-version>6.0.0.GA</sdk-version>
+    <property name="appc-app-id" type="string">5848e350411c881e3e641e39</property>
+  </ti:app>

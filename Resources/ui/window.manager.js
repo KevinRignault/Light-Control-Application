@@ -1,6 +1,10 @@
 //------------------
-// MAKE WINDOW
+// WINDOW MANAGER
 //------------------
+
+exports.WindowManager = function() {
+
+};
 
 /*
  * makeWindow
@@ -9,8 +13,8 @@
  * title {String} : Titre la fenêtre
  * 
  */
-function makeWindow(title) {
-	
+exports.WindowManager.prototype.makeWindow = function(title){
+
 	//-- Main window
 	var mainWin = Ti.UI.createWindow({
 		width:pWidth,
@@ -33,4 +37,4 @@ function makeWindow(title) {
 	mainWin.content = mainContent;
 	
 	return mainWin;
-}
+};

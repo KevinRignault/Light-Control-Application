@@ -2,6 +2,9 @@
 // SERVER FUNCTIONS
 //------------------
 
+exports.ServerRequest = function() {
+
+};
 
 /*
  * lightManager
@@ -12,20 +15,19 @@
  * callbackError {Function} : Callback d'erreur
  * 
  */
-function lightManager(url,callback,callbackError) {
-	var xhr = Titanium.Network.createHTTPClient();
-	
-	Ti.API.info(url);
-	
-    xhr.onload = function(e) { 
-    	var response = this.responseText;
-		callback();
-    	response = null;
-    };
-    xhr.onerror = function(e) {
-    	callbackError(e);
-	};
+exports.ServerRequest.prototype.lightManager = function(url,callback,callbackError) {
+	var xhr = Titanium.Network.createHTTPClient({
+		onload : function(e) { 
+	    	var response = this.responseText;
+			callback();
+	    	response = null;
+	   	},
+	   	onerror : function(e) {
+	    	callbackError(e);
+		},
+		timeout : 3500
+	});
 	
 	xhr.open('GET', url);
-	xhr.send();	
+	xhr.send();
 };

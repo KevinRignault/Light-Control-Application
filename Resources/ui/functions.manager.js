@@ -1,6 +1,10 @@
 //------------------
-// APP FUNCTIONS
+// UTILS
 //------------------
+
+exports.Utils = function() {
+
+};
 
 /*
  * makeLedSlide
@@ -12,7 +16,7 @@
  * colorDeactive {String} : Couleur du slide non actif
  * 
  */
-function makeLedSlide(active,led,colorActive,colorDeactive){
+exports.Utils.prototype.makeLedSlide = function(active,led,colorActive,colorDeactive){
 	var slide = Ti.UI.createView({
 		touch:"light",
 		active:active,
@@ -31,8 +35,6 @@ function makeLedSlide(active,led,colorActive,colorDeactive){
 	});
 	slide.add(light);
 	
-	slide.light = light;
-	
 	var label = Ti.UI.createLabel({
 		bottom:150,
 		text:active ? 'ON' : 'OFF',
@@ -49,7 +51,9 @@ function makeLedSlide(active,led,colorActive,colorDeactive){
 	});
 	slide.add(label);
 	
+	//-- Quick access
+	slide.light = light;
 	slide.label = label;
 	
 	return slide;
-}
+};

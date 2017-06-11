@@ -3,13 +3,16 @@
 //------------------
 
 //-- Make Window
-Ti.include('/ui/window.manager.js');
+var windowManagerModule = require('ui/window.manager').WindowManager;
+WindowManager = new windowManagerModule();
 
 //-- App Functions
-Ti.include('/ui/functions.manager.js');
+var utilsModule = require('ui/functions.manager').Utils;
+Utils = new utilsModule();
 
 //-- Server Functions
-Ti.include('/ui/server.manager.js');
+var serverRequestModule = require('ui/server.manager').ServerRequest;
+ServerRequest = new serverRequestModule();
 
 //-- Make Header
 var makeHeader = require('ui/header.manager').makeHeader;

@@ -6,18 +6,18 @@ exports.dashboardWin = function() {
 	//------------------
 	// WINDOW
 	//------------------
-	var mainWin = makeWindow('Dashboard', false);
+	var mainWin = new WindowManager.makeWindow('Dashboard', false);
 	
 	//-- SCROLLABLE
 	var scrollableLight = Ti.UI.createScrollableView({width:pWidth,height:pHeight,showPagingControl:true,pagingControlColor:'transparent',pagingControlHeight:40,overlayEnabled:true,disableBounce:true});
 	mainWin.content.add(scrollableLight);
 	
 	//-- RED SLIDE
-	var redSlide = makeLedSlide(false,0,'rgba(206,53,75,1)','rgba(206,53,75,0.4)');
+	var redSlide = Utils.makeLedSlide(false,0,'rgba(206,53,75,1)','rgba(206,53,75,0.4)');
 	scrollableLight.addView(redSlide);
 	
 	//-- GREEN SLIDE
-	var greenSlide = makeLedSlide(false,1,'rgba(98,168,158,1)','rgba(98,168,158,0.4)');
+	var greenSlide = Utils.makeLedSlide(false,1,'rgba(98,168,158,1)','rgba(98,168,158,0.4)');
 	scrollableLight.addView(greenSlide);
 	
 	//-- CLICK EVENT
@@ -55,14 +55,14 @@ exports.dashboardWin = function() {
 			
 		var thisURL = SERVER_URL+"/"+thisAction+"/"+thisLed;
 		
-		lightManager(thisURL, 
+		ServerRequest.lightManager(thisURL, 
 		//-- Success
 		function(){
 			switchSlide(thisSlide);
 		},
 		//-- Error
 		function(){
-			alert("Une erreur s'est produite.");
+			alert("Une erreur s'est produite. Vérifiez la connexion avec votre Raspberry.");
 		});
 	}
 	

@@ -6,7 +6,7 @@ exports.settingsWin = function() {
 	//------------------
 	// WINDOW
 	//------------------
-	var mainWin = makeWindow('Settings', false);
+	var mainWin = WindowManager.makeWindow('Settings', false);
 	
 	var header = new makeHeader(mainWin);
 	
